@@ -34,7 +34,7 @@ import (
 // the shim will be leaked. In order to reproduce this, this case will use
 // failpoint to inject error into Shutdown API, and then check whether the shim
 // is leaked.
-func TestIssue7496_ShouldRetryShutdown(t *testing.T) {
+func TestIssue7496_ShouldRetryShutdown(t *testing.T) { // integration test
 	// TODO: re-enable if we can retry Shutdown API.
 	t.Skipf("Please re-enable me if we can retry Shutdown API")
 

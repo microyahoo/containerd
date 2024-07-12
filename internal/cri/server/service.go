@@ -199,7 +199,7 @@ func NewCRIService(options *CRIServiceOptions) (CRIService, runtime.RuntimeServi
 	}
 
 	// TODO: Make discard time configurable
-	c.containerEventsQ = eventq.New[runtime.ContainerEventResponse](5*time.Minute, func(event runtime.ContainerEventResponse) {
+	c.containerEventsQ = eventq.New[runtime.ContainerEventResponse](5*time.Minute, func(event runtime.ContainerEventResponse) { // 初始化容器事件队列
 		containerEventsDroppedCount.Inc()
 		log.L.WithFields(
 			log.Fields{

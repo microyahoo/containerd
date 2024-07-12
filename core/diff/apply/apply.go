@@ -77,7 +77,7 @@ func (s *fsApplier) Apply(ctx context.Context, desc ocispec.Descriptor, mounts [
 	processor := diff.NewProcessorChain(desc.MediaType, content.NewReader(ra))
 	processors = append(processors, processor)
 	for {
-		if processor, err = diff.GetProcessor(ctx, processor, config.ProcessorPayloads); err != nil {
+		if processor, err = diff.GetProcessor(ctx, processor, config.ProcessorPayloads); err != nil { // get processor
 			return emptyDesc, fmt.Errorf("failed to get stream processor for %s: %w", desc.MediaType, err)
 		}
 		processors = append(processors, processor)

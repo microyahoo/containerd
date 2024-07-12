@@ -261,7 +261,7 @@ func reap(wait bool) (exits []exit, err error) {
 		flag = 0
 	}
 	for {
-		pid, err := unix.Wait4(-1, &ws, flag, &rus)
+		pid, err := unix.Wait4(-1, &ws, flag, &rus) // wait4
 		if err != nil {
 			if err == unix.ECHILD {
 				return exits, nil

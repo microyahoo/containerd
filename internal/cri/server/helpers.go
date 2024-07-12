@@ -395,7 +395,7 @@ func (c *criService) generateAndSendContainerEvent(ctx context.Context, containe
 		ContainersStatuses: containerStatuses,
 	}
 
-	c.containerEventsQ.Send(event)
+	c.containerEventsQ.Send(event) // 发送 container 事件
 }
 
 func (c *criService) getPodSandboxStatus(ctx context.Context, podSandboxID string) (*runtime.PodSandboxStatus, error) {

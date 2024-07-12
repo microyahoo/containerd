@@ -81,7 +81,7 @@ type Init struct {
 // NewRunc returns a new runc instance for a process
 func NewRunc(root, path, namespace, runtime string, systemd bool) *runc.Runc {
 	if root == "" {
-		root = RuncRoot
+		root = RuncRoot // runc state 目录
 	}
 	return &runc.Runc{
 		Command:       runtime,
@@ -308,7 +308,7 @@ func (p *Init) delete(ctx context.Context) error {
 		}
 		p.io.Close()
 	}
-	if err2 := mount.UnmountRecursive(p.Rootfs, 0); err2 != nil {
+	if err2 := mount.UnmountRecursive(p.Rootfs, 0); err2 != nil { // umount
 		log.G(ctx).WithError(err2).Warn("failed to cleanup rootfs mount")
 		if err == nil {
 			err = fmt.Errorf("failed rootfs umount: %w", err2)

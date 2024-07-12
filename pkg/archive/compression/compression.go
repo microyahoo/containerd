@@ -267,7 +267,7 @@ func gzipDecompress(ctx context.Context, buf io.Reader) (io.ReadCloser, error) {
 			log.L.Debug("using igzip for decompression")
 			return
 		}
-		if gzipPath = detectCommand("unpigz", disablePigzEnv); gzipPath != "" {
+		if gzipPath = detectCommand("unpigz", disablePigzEnv); gzipPath != "" { // unpigz
 			log.L.Debug("using unpigz for decompression")
 		}
 	})

@@ -290,7 +290,7 @@ func isFUSE(dir string) bool {
 	if err := unix.Statfs(dir, &st); err != nil {
 		return false
 	}
-	return st.Type == fuseSuperMagic
+	return st.Type == fuseSuperMagic // fuse super magic
 }
 
 // unmountFUSE attempts to unmount using fusermount/fusermount3 helper binary.

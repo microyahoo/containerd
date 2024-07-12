@@ -373,7 +373,7 @@ func (s *service) Delete(ctx context.Context, r *taskAPI.DeleteRequest) (*taskAP
 		s.mu.Lock()
 		delete(s.containers, r.ID)
 		s.mu.Unlock()
-		s.send(&eventstypes.TaskDelete{
+		s.send(&eventstypes.TaskDelete{ // send task delete event
 			ContainerID: container.ID,
 			Pid:         uint32(p.Pid()),
 			ExitStatus:  uint32(p.ExitStatus()),

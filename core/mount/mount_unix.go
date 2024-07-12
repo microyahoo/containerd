@@ -61,7 +61,7 @@ func UnmountRecursive(target string, flags int) error {
 	})
 
 	for i, target := range targets {
-		if err := UnmountAll(target, flags); err != nil {
+		if err := UnmountAll(target, flags); err != nil { // umount all
 			if i == len(targets)-1 { // last mount
 				return err
 			}

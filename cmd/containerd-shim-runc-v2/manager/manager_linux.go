@@ -320,7 +320,7 @@ func (manager) Stop(ctx context.Context, id string) (shim.StopStatus, error) {
 	}
 	return shim.StopStatus{
 		ExitedAt:   time.Now(),
-		ExitStatus: 128 + int(unix.SIGKILL),
+		ExitStatus: 128 + int(unix.SIGKILL), // 137
 		Pid:        pid,
 	}, nil
 }

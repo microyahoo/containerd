@@ -163,7 +163,7 @@ func (c *criService) startContainerExitMonitor(ctx context.Context, id string, p
 }
 
 // handleContainerExit handles TaskExit event for container.
-func (c *criService) handleContainerExit(ctx context.Context, e *eventtypes.TaskExit, cntr containerstore.Container, sandboxID string) error {
+func (c *criService) handleContainerExit(ctx context.Context, e *eventtypes.TaskExit, cntr containerstore.Container, sandboxID string) error { // 处理容器退出
 	// Attach container IO so that `Delete` could cleanup the stream properly.
 	task, err := cntr.Container.Task(ctx,
 		func(*containerdio.FIFOSet) (containerdio.IO, error) {
